@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Modal</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="mormalize.css">
+	<style type="text/css">
+	@font-face{
+		font-family: myFont;
+		src: url("fz_pasajero/Pasajero.otf");
+
+	}
+
+
+		#myModal{
+
+			display: none;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding-top: 100px;
+            margin: auto;
+            position: fixed;
+			z-index: 1; /* Sit on top */
+			left:0;
+			top: 0;
+		    width:100%; /* Full width */
+			height:auto; /* Full height */
+			overflow: auto; /* Enable scroll if needed */
+            align-content: space-around;
+            flex-direction: column-reverse;
+
+		
+			    
+		}
+
+		#Close{
+			font-size: 1.6em;
+			font-weight: bold;
+			color: #D43434;
+			position: absolute;
+			top:35px;
+			right:40px;
+			cursor: pointer;
+			font-family: cursive;
+
+		}
+
+		#modalimg{
+			max-width: 100%;
+			height:auto;
+            margin: auto;
+            resize: none;
+		}
+
+		#caption{
+			text-align: center;
+			font-family: myFont;
+			font-weight: 700;
+			color: #FBF800;
+			letter-spacing: 15px;
+			font-size: 2em;
+
+		}
+
+		h1{
+			font-family: myFont;
+			font-weight: 800;
+			font-size: 8em;
+			color: #000;
+			text-shadow: 4px 4px 5px blue, -4px -4px 5px blue;
+			text-align: center;
+			letter-spacing: 40px;
+			
+		}
+
+		html{
+			background-color:lime;
+		}
+
+		#myImg{
+			margin: auto;
+			border-radius: 20px;
+			border: 2px solid black;
+			display: flex;
+			-ms-display:-ms-flex;
+			max-width: 100%;
+
+		}
+
+		#myImg:hover{
+			opacity: 0.9;
+			box-shadow: 6px 6px 5px blue, -6px -6px 5px blue;
+			filter: contrast(100%);
+		}
+
+		#Close:hover{
+			color: red;
+			font-weight: 900;
+			font-family: cursive;
+			
+		}
+
+		/*ANIMATION*/
+		#myModal{
+
+			animation-name: zoom;
+			animation-duration: 2s;
+			animation-timing-function: ease-in;
+		}
+
+		@keyframes zoom{
+			from{transform:scale(0.1)}
+			to{transform:scale(1)}
+		}
+
+	</style>
+</head>
+<body>
+ <h1>MY image modal</h1>
+    <img id="myImg" src="pp.jpg" alt="HILLSONG WORSHIP QUOTES" width="250" height="250">
+
+    <div id="myModal">
+    	<span id="Close">x</span>
+    	<img id="modalimg">
+    	<div id="caption"></div>
+    </div>
+
+    <script type="text/javascript">
+    	var modalE = document.getElementById('modalimg');
+    	var modal = document.getElementById("myModal");
+    	var captionText = document.getElementById("caption");
+    	var img = document.getElementById("myImg");
+
+    	img.onclick = function() {
+    		// body...
+    		modal.style.display = "flex";
+    		modalE.src = this.src;
+    		modalE.alt = this.alt;
+            captionText.innerHTML = this.alt;
+
+    	}
+
+
+    	var close = document.getElementById("Close");
+    	close.onclick = function() {
+    		modal.style.display = "none";
+    	}
+
+
+    </script>
+</body>
+</html>
+
